@@ -16,13 +16,19 @@
 cp .env.example .env
 ```
 
-2. Run the `pnpm` setup script:
+2. Install the dependencies:
 
 ```bash
-pnpm setup
+pnpm install
 ```
 
-3. Run the docker containers and get to work:
+3. Init Husky:
+
+```bash
+pnpm dlx husky
+```
+
+4. Run the docker containers and get to work:
 
 ```bash
 docker compose up
