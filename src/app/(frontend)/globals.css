@@ -131,7 +131,7 @@ html[data-theme="light"] {
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #171717CC;
+    background: #171717cc;
   }
 
   h1,
@@ -175,7 +175,6 @@ html[data-theme="light"] {
     @apply text-destructive;
   }
 
-
   /* Form Field Required Asterisk Class*/
   .required {
     @apply text-destructive;
@@ -183,53 +182,52 @@ html[data-theme="light"] {
 
   /* Decorative */
   .line-b {
-    position:relative
+    position: relative;
   }
   .line-b:after {
-    bottom:calc(var(--spacing)*0);
-    content:var(--tw-content);
-    background-color:color-mix(in oklab,var(--color-gray-950)5%,transparent);
-    width:200vw;
-    height:1px;
-    position:absolute;
-    left:-100vw
+    bottom: calc(var(--spacing) * 0);
+    content: var(--tw-content);
+    background-color: color-mix(in oklab, var(--color-gray-950) 5%, transparent);
+    width: 200vw;
+    height: 1px;
+    position: absolute;
+    left: -100vw;
   }
 
   .line-t {
-    position:relative
+    position: relative;
   }
   .line-t:before {
-    top:calc(var(--spacing)*0);
-    content:var(--tw-content);
-    background-color:color-mix(in oklab,var(--color-gray-950)5%,transparent);
-    width:200vw;
-    height:1px;
-    position:absolute;
-    left:-100vw
+    top: calc(var(--spacing) * 0);
+    content: var(--tw-content);
+    background-color: color-mix(in oklab, var(--color-gray-950) 5%, transparent);
+    width: 200vw;
+    height: 1px;
+    position: absolute;
+    left: -100vw;
   }
 
   .line-y {
-    position:relative
+    position: relative;
   }
   .line-y:before {
-    top:calc(var(--spacing)*0);
-    content:var(--tw-content);
-    background-color:color-mix(in oklab,var(--color-gray-950)5%,transparent);
-    width:200vw;
-    height:1px;
-    position:absolute;
-    left:-100vw
+    top: calc(var(--spacing) * 0);
+    content: var(--tw-content);
+    background-color: color-mix(in oklab, var(--color-gray-950) 5%, transparent);
+    width: 200vw;
+    height: 1px;
+    position: absolute;
+    left: -100vw;
   }
   .line-y:after {
-    bottom:calc(var(--spacing)*0);
-    content:var(--tw-content);
-    background-color:color-mix(in oklab,var(--color-gray-950)5%,transparent);
-    width:200vw;
-    height:1px;
-    position:absolute;
-    left:-100vw
+    bottom: calc(var(--spacing) * 0);
+    content: var(--tw-content);
+    background-color: color-mix(in oklab, var(--color-gray-950) 5%, transparent);
+    width: 200vw;
+    height: 1px;
+    position: absolute;
+    left: -100vw;
   }
-
 
   .cursor {
     @apply font-extralight;

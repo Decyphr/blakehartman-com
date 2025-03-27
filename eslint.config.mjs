@@ -26,6 +26,7 @@ export default antfu(
       "react-refresh/only-export-components": ["off"],
       "node/no-process-env": ["off"],
       "react/no-array-index-key": ["off"],
+      "react/no-comment-textnodes": ["off"],
       "perfectionist/sort-imports": [
         "error",
         {
