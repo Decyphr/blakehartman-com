@@ -30,7 +30,10 @@ export async function generateMeta(args: {
     ? `${doc?.meta?.title} | Payload Website Template`
     : "Payload Website Template";
 
+  const hiddenPage = doc?.meta?.hidden;
+
   return {
+    robots: hiddenPage ? "noindex" : undefined,
     description: doc?.meta?.description,
     openGraph: mergeOpenGraph({
       description: doc?.meta?.description || "",

@@ -13,7 +13,7 @@ services:
       - db
     environment:
       - NODE_ENV=development
-      - DATABASE_URI=postgres://payload:secret@db:5432/payload-playground
+      - DATABASE_URI=postgres://payload:secret@db:5432/blakehartman-com
     env_file:
       - .env
 
@@ -24,7 +24,7 @@ services:
     environment:
       POSTGRES_USER: payload
       POSTGRES_PASSWORD: secret
-      POSTGRES_DB: payload-playground
+      POSTGRES_DB: blakehartman-com
     volumes:
       - data:/var/lib/postgresql/data
     logging:

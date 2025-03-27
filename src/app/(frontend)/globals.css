@@ -110,6 +110,30 @@ html[data-theme="light"] {
     @apply bg-background text-foreground;
   }
 
+  /**
+   * Scrollbar
+   */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #171717;
+    border-radius: 999px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #171717CC;
+  }
+
   h1,
   h2,
   h3,
@@ -124,7 +148,7 @@ html[data-theme="light"] {
     @apply scroll-m-20 mt-2 text-6xl tracking-tighter sm:text-8xl text-pretty;
   }
   h2 {
-    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-pretty;
+    @apply scroll-m-20 text-3xl font-semibold tracking-tight text-pretty;
   }
   h3 {
     @apply scroll-m-20 text-2xl font-semibold tracking-tight;
@@ -149,5 +173,78 @@ html[data-theme="light"] {
   /* Form Field Required Asterisk Class*/
   .required {
     @apply text-destructive;
+  }
+
+
+  /* Form Field Required Asterisk Class*/
+  .required {
+    @apply text-destructive;
+  }
+
+  /* Decorative */
+  .line-b {
+    position:relative
+  }
+  .line-b:after {
+    bottom:calc(var(--spacing)*0);
+    content:var(--tw-content);
+    background-color:color-mix(in oklab,var(--color-gray-950)5%,transparent);
+    width:200vw;
+    height:1px;
+    position:absolute;
+    left:-100vw
+  }
+
+  .line-t {
+    position:relative
+  }
+  .line-t:before {
+    top:calc(var(--spacing)*0);
+    content:var(--tw-content);
+    background-color:color-mix(in oklab,var(--color-gray-950)5%,transparent);
+    width:200vw;
+    height:1px;
+    position:absolute;
+    left:-100vw
+  }
+
+  .line-y {
+    position:relative
+  }
+  .line-y:before {
+    top:calc(var(--spacing)*0);
+    content:var(--tw-content);
+    background-color:color-mix(in oklab,var(--color-gray-950)5%,transparent);
+    width:200vw;
+    height:1px;
+    position:absolute;
+    left:-100vw
+  }
+  .line-y:after {
+    bottom:calc(var(--spacing)*0);
+    content:var(--tw-content);
+    background-color:color-mix(in oklab,var(--color-gray-950)5%,transparent);
+    width:200vw;
+    height:1px;
+    position:absolute;
+    left:-100vw
+  }
+
+
+  .cursor {
+    @apply font-extralight;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }

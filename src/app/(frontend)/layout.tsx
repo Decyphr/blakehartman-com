@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
+import { Inter } from "next/font/google";
 import { draftMode } from "next/headers";
 import { getPayload } from "payload";
 import React from "react";
@@ -19,6 +18,9 @@ import { mergeOpenGraph } from "~/utilities/merge-open-graph";
 import { cn } from "~/utilities/ui";
 
 export const revalidate = 0;
+
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter({ subsets: ["latin"] });
 
 const querySiteSettings = React.cache(async () => {
   const { isEnabled: draft } = await draftMode();
@@ -48,7 +50,7 @@ export default async function RootLayout({
   return (
     <html
       id="website"
-      className={cn(GeistSans.variable, GeistMono.variable)}
+      className={cn(inter.className)}
       lang="en"
       suppressHydrationWarning
     >

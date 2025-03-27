@@ -1,38 +1,78 @@
 "use client";
 
-import { SearchIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 import type { Header as HeaderType } from "~/cms/payload-types";
 
 import { CMSLink } from "~/components/link";
-import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "~/components/ui/navigation-menu";
+import { Logo } from "~/components/logo";
+import { buttonVariants } from "~/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "~/components/ui/sheet";
 
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
-  const navItems = data?.navItems || [];
+  const navItems = data?.navItems ?? [];
 
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
+    <div>
+      {/* Mobile Navigation */}
+      <div className="md:hidden">
+        <Sheet>
+          <SheetTrigger asChild>
+            <button type="button">
+              <MenuIcon className="h-6 w-6" />
+              <span className="sr-only">Open menu</span>
+            </button>
+          </SheetTrigger>
+          <SheetContent side="right">
+            <SheetHeader className="px-0 py-6">
+              <SheetTitle className="px-6 pb-4">
+                <Link href="/">
+                  <Logo className="w-[120px]" />
+                </Link>
+              </SheetTitle>
+            </SheetHeader>
+
+            <nav className="flex flex-col divide-y divide-foreground">
+              {navItems.map(({ link }, i) => {
+                return (
+                  <CMSLink
+                    key={i}
+                    className="text-lg p-6 transition-colors hover:bg-foreground hover:text-background focus:bg-foreground focus:text-background"
+                    {...link}
+                  />
+                );
+              })}
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
+
+      {/* Desktop Navigation */}
+      <nav className="flex items-center gap-5 max-md:hidden lg:gap-6">
         {navItems.map(({ link }, i) => {
-          return <ListItem key={i} {...link} appearance="link" title={link.label} />;
+          return (
+            <CMSLink
+              key={i}
+              className="text-sm/6 text-gray-950"
+              {...link}
+            />
+          );
         })}
-        <Link href="/search">
-          <span className="sr-only">Search</span>
-          <SearchIcon className="w-5 text-primary" />
+        <Link
+          className={buttonVariants({ variant: "default", size: "sm", className: "sm:min-w-0" })}
+          href="/contact"
+        >
+          Let's Get Started
         </Link>
-      </NavigationMenuList>
-    </NavigationMenu>
+      </nav>
+    </div>
   );
 };
-
-function ListItem({ title, className, children, ...props }: React.ComponentPropsWithoutRef<typeof CMSLink> & { title: string }) {
-  return (
-    <NavigationMenuItem>
-      <NavigationMenuLink asChild className="hover:bg-transparent focus:bg-transparent">
-        <CMSLink {...props} />
-      </NavigationMenuLink>
-    </NavigationMenuItem>
-  );
-}
