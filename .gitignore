@@ -1,0 +1,26 @@
+build
+dist / media
+node_modules
+.DS_Store
+.next
+.vercel
+
+.pnpm-store
+tsconfig.tsbuildinfo
+
+node-compile-cache
+
+# ENV files
+.env*
+!.env.example
+
+
+# Payload default media upload directory
+public/media/
+
+public/robots.txt
+public/sitemap*.xml
+
+**/terraform.tfvars
+
+*storybook.log
