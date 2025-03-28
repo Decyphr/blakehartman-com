@@ -10,6 +10,11 @@ import {
   CarouselPrevious,
 } from "~/components/ui/carousel";
 
+import { BrutalistHeader } from "./brutalist-header";
+import { FadeInSection } from "./motions/fade-in";
+import { SectionSeparator } from "./section-separator";
+import { Badge } from "./ui/badge";
+
 const imageSrc = "https://picsum.photos/1600/900";
 
 // Sample project data - replace with your actual projects
@@ -89,52 +94,18 @@ const projects = [
 
 export default function ProjectShowcase() {
   return (
-    <section className="w-full py-32">
-      <div>
-        {/* Brutalist Header */}
-        <div className="flex items-center justify-between mb-6 py-12 line-y">
-          <h2 className="text-muted-foreground text-5xl font-thin uppercase tracking-tight">
-            // Projects
-          </h2>
-          {/* <p className="text-muted-foreground font-mono">A collection of work spanning 2020-2025</p> */}
-        </div>
-
-        {/* Filter Controls - Brutalist Style */}
-        {/* <div className="flex flex-wrap gap-2 mb-8 font-mono">
-          <Button
-            variant="outline"
-            className="rounded-none border-2 border-black hover:bg-black hover:text-white transition-none"
-          >
-            ALL
-          </Button>
-          <Button
-            variant="outline"
-            className="rounded-none border-2 border-black hover:bg-black hover:text-white transition-none"
-          >
-            WEB
-          </Button>
-          <Button
-            variant="outline"
-            className="rounded-none border-2 border-black hover:bg-black hover:text-white transition-none"
-          >
-            MOBILE
-          </Button>
-          <Button
-            variant="outline"
-            className="rounded-none border-2 border-black hover:bg-black hover:text-white transition-none"
-          >
-            DESIGN
-          </Button>
-        </div> */}
+    <SectionSeparator id="projects">
+      <FadeInSection>
+        <BrutalistHeader title="Projects_" subtitle="A collection of work that has been done" />
 
         {/* Brutalist Project Gallery Grid */}
-        <Carousel className="pb-6 line-b">
+        <Carousel>
           <CarouselContent>
             {projects.map(project => (
               <CarouselItem
                 key={project.id}
               >
-                <div className="rounded-md overflow-hidden group shadow-sm bg-foreground text-background flex flex-col justify-between">
+                <div className="rounded-md overflow-hidden group shadow-sm bg-foreground text-background flex flex-col justify-between border-4 border-primary">
                   <div className="relative aspect-video overflow-hidden border-b border-primary">
                     <Image src={project.image} alt={project.title} fill className="object-cover" />
                   </div>
@@ -149,9 +120,7 @@ export default function ProjectShowcase() {
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map(tag => (
-                        <span key={tag} className="rounded-full inline-block border border-current px-4 py-1 text-xs font-mono">
-                          {tag}
-                        </span>
+                        <Badge key={tag}>{tag}</Badge>
                       ))}
                     </div>
                   </div>
@@ -170,7 +139,7 @@ export default function ProjectShowcase() {
             </div>
           </div>
         </Carousel>
-      </div>
-    </section>
+      </FadeInSection>
+    </SectionSeparator>
   );
 }

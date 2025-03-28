@@ -15,6 +15,7 @@ export default antfu(
       "**/migrations/*",
       "src/app/(payload)/admin/importMap.js",
       "**/payload-types.ts",
+      "src/lotties/*",
     ],
   },
   {
